@@ -4,7 +4,7 @@
 
 Concurrent-fetch extraction for offset-paginated APIs, with a benchmark that measures the actual speedup instead of just claiming one. One piece of a small multi-service platform demo, see [Related repos](#related-repos) for the rest.
 
-This is a sanitized, generic rebuild for portfolio purposes. No real vendor, client, or company data is used anywhere in this repo. More context: [paulocremas-showcase](https://github.com/paulocremas-showcase).
+This is a sanitized, generic rebuild for portfolio purposes. No real vendor, client, or company data is used anywhere in this repo. More context: [paulocremas-showcase](https://github.com/paulocremas-showcase). Full portfolio: [paulocremas.github.io](https://paulocremas.github.io).
 
 ## Table of contents
 - [What this is](#what-this-is)
