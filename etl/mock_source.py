@@ -23,7 +23,7 @@ class MockOrdersSource:
         self.total_items = total_items
         self.page_size = page_size
         self.latency_s = latency_s
-        self._rng = random.Random(seed)
+        self._rng = random.Random(seed)  # noqa: S311 -- deterministic mock data, not a security use
 
     @property
     def page_count(self) -> int:

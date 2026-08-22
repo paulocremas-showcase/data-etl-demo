@@ -25,9 +25,9 @@ async def run(total_items: int, page_size: int, latency_s: float, max_concurrent
     concurrent_items = await concurrent_fetch(source, max_concurrent=max_concurrent)
     concurrent_s = time.perf_counter() - start
 
-    assert sorted(i["id"] for i in sequential_items) == sorted(i["id"] for i in concurrent_items), (
-        "sequential and concurrent fetch must return the same rows"
-    )
+    assert sorted(i["id"] for i in sequential_items) == sorted(  # noqa: S101 -- correctness gate, not test code
+        i["id"] for i in concurrent_items
+    ), "sequential and concurrent fetch must return the same rows"
 
     print(f"sequential:  {sequential_s:.2f}s")
     print(f"concurrent:  {concurrent_s:.2f}s  (max_concurrent={max_concurrent})")

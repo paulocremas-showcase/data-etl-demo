@@ -58,6 +58,8 @@ Smoke tests: `python tests/test_pipeline.py`
 - **This only works when pagination is offset-computable ahead of time.** If a page's request depends on the previous page's response (cursor-based pagination, or a filter that isn't ID-ordered on the server), concurrent fetching doesn't help and can actively hurt: I measured this exact failure mode on a real production API where an unindexed filter forced the server to re-scan per page, making concurrent fetching 1.6 to 2.8x **slower**, not faster. Know which shape of API you have before reaching for this.
 - **Correctness before speed.** The test suite asserts `sequential_fetch` and `concurrent_fetch` return identical rows, the same check I ran against real production data before switching a live pipeline over to this pattern.
 
+Full reasoning and the decision this codifies: [ADR-0001](docs/adr/0001-concurrent-fetch-requires-offset-computable-pagination.md).
+
 ## Rules
 
 - `sequential_fetch` and `concurrent_fetch` must always be tested for identical output, not just similar timing.
