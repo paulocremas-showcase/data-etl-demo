@@ -21,7 +21,7 @@ The concurrent-fetch sibling to [data-extraction-demo](https://github.com/pauloc
 ## Flow
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Vendor API] --> B[etl/pipeline.py]
     B -->|sequential_fetch: one page at a time| C[Same rows]
     B -->|concurrent_fetch: N pages at once, semaphore-bounded| C
